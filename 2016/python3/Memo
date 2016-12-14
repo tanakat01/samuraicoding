@@ -27,3 +27,6 @@ players/random.sh
 cd /Users/ktanaka/work/samurai_coding_2016/samurai-software-20161125
 
 ./manager/gameManager -d 1 6
+
+http://getpython3.com/diveintopython3/special-method-names.html
+にspecial methods

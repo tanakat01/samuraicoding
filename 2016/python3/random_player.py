@@ -20,9 +20,9 @@ def main():
     my_team = int(input())
     print(0)
     while True:
-        state = game.read_turn(my_team)
+        state = game.State.read_turn(my_team)
 #        print(state, file=sys.stderr)
-        moves = game.make_moves(state)
+        moves = state.make_moves()
 #        print('moves = %s' % moves, file=sys.stderr)
         move = moves[random.randrange(len(moves))]
         print(' '.join(str(x) for x in move))
