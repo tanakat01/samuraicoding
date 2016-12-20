@@ -24,11 +24,20 @@ class P(object):
     def __str__(self):
         return 'P(%s, %s)' % (self.x, self.y)
 
+    def __repr__(self):
+        return self.__str__()
+
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
 
+    def __lt__(self, other):
+        return (self.x, self.y) < (other.x, other.y)
+
     def __copy__(self):
         return P(self.x, self.y)
+
+    def __hash__(self):
+        return hash((self.x, self.y))
 
     def rotate(self, d):
         x, y = self.x, self.y
@@ -56,7 +65,7 @@ class Samurai(object):
 HOMES = [P(0, 0), P(0, 7), P(7, 0), P(14, 14), P(14, 7), P(7, 14)]
 WEAPONS = [[P(0, 1), P(0, 2), P(0, 3), P(0, 4)],
            [P(1, 0), P(2, 0), P(0, 1), P(1, 1), P(0, 2)],
-           [P(-1, -1), P(1, -1), P(-1, 0), P(0, 1), P(-1, 1), P(0, 1), P(1, 1)]]
+           [P(-1, -1), P(1, -1), P(-1, 0), P(1, 0), P(-1, 1), P(0, 1), P(1, 1)]]
 
 def is_home(p):
     return p in HOMES
